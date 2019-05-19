@@ -1,10 +1,11 @@
 #pragma once
 #include<vector>
 #include<list>
+#include<deque>
 #include<iostream>
 using namespace std;
 
-template<class T>
+template<class T, class container = deque<T>>
 class Stack
 {
 public:
@@ -27,5 +28,31 @@ public:
 		return stack_.size();
 	}
 private:
-	vector<T> stack_;
+	container stack_;
+};
+
+template<class T, class container = deque<T>>
+class Queue
+{
+public:
+	Queue()
+	{}
+	void Push(const T& val)
+	{
+		queue_.push_back(val);
+	}
+	T& Pop()
+	{
+		queue_.pop_back();
+	}
+	T& Top()
+	{
+		return queue_.back();
+	}
+	size_t Size()
+	{
+		return queue_.size();
+	}
+private:
+	container queue_;
 };
