@@ -12,6 +12,8 @@ void test()
 	cout << s.BinaryTreeSize(root) << endl;
 	cout << s.BinaryTreeLeafSize(root) << endl;
 	s.BinaryTreeLevelorder(root);
+	cout << endl;
+	cout << s.BinaryTreeComplete(root) << endl;
 }
 int main()
 {

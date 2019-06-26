@@ -152,17 +152,48 @@ public:
 			}
 		}
 	}
+	//判断二叉树是否是完全二叉树
+	bool BinaryTreeComplete(BTreeNode<char>* root)
+	{
+		if (!root)
+		{
+			return true;
+		}
+		queue< BTreeNode<char>*> myq;
+		myq.push(root);
+		while (1)
+		{
+			myq.push(root->left_);
+			myq.push(root->right_);
+			myq.pop();
+			root = myq.front();
+			if (root == nullptr)
+			{
+				break;
+			}
+		}
+		while (!myq.empty())
+		{
+			if (myq.front() != nullptr)
+			{
+				return false;
+			}
+			myq.pop();
+		}
+		return true;
+	}
+
+	//前中后序遍历
+	void BinaryTreePrevOrderNonP(BTreeNode<char>* root)
+	{
+
+	}
+	void BinaryTreeInOrderNonP(BTreeNode<char>* root)
+	{
+
+	}
+	void BinaryTreePostOrderNonP(BTreeNode<char>* root)
+	{
+
+	}
 };
-
-
-
-
-////判断二叉树是否是完全二叉树
-//char* BinaryTreeComplete(BTree<int>* root);
-//
-////前中后序遍历
-//void BinaryTreePrevOrderNonP(BTree<int>* root);
-//void BinaryTreeInOrderNonP(BTree<int>* root);
-//void BinaryTreePostOrderNonP(BTree<int>* root);
-//
-//
