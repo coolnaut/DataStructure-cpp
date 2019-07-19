@@ -26,6 +26,7 @@ void test2()
 	cout << endl;
 	s.BinaryTreeInOrderNonP(root);
 	cout << endl;
+	s.BinaryTreePostOrderNonP(root);
 }
 int main()
 {

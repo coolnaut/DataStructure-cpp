@@ -225,20 +225,30 @@ public:
 	}
 	void BinaryTreePostOrderNonP(BTreeNode<char>* root)
 	{
-		stack< BTreeNode<char>*> nodeq;
+		stack< BTreeNode<char>*> parentstack;
+		stack< BTreeNode<char>*> childstack;
 		BTreeNode<char>* cur = root;
-		while (cur != nullptr || !nodeq.empty())
+		
+		while (cur != nullptr || !parentstack.empty())
 		{
-		{
-			while (cur != nullptr)
+			if (cur)
 			{
-				nodeq.push(cur);
+				parentstack.push(cur);
+				childstack.push(cur);
+				cur = cur->right_;
+			}
+			else
+			{
+				cur = parentstack.top();
+				parentstack.pop();
 				cur = cur->left_;
 			}
-			BTreeNode<char>* tmp = nodeq.top();
-			nodeq.pop();
-			cout << tmp->data_ << " ";
-			cur = tmp->right_;
-		}s
+		}
+		while (!childstack.empty())
+		{
+			cout << childstack.top()->data_ << " ";
+			childstack.pop();
+		}
+		cout << endl;
 	}
 };
